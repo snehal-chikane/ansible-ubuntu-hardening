@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: yes
+  roles:
+    - users
+    - apt
+    - ssh_hardening
+    - firewall
+    - auditd
+    

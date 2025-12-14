@@ -1,0 +1,15 @@
+---
+# tasks file for roles/audird
+
+
+
+- name: Install auditd
+  apt:
+     name: auditd
+     state: present
+
+- name: Enable auditd
+  service:
+      name: auditd
+      state: started
+      enabled: yes

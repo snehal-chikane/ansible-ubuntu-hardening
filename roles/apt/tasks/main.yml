@@ -1,0 +1,20 @@
+---
+# tasks file for roles/apt
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Install important packages
+  apt:
+    name:
+      - curl
+      - htop
+      - wget
+      - vim
+      - wget
+      - unzip
+    state: present
+
+

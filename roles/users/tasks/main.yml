@@ -1,0 +1,19 @@
+---
+# tasks file for roles/usersi
+
+
+- name: create users as sudo
+  user:
+    name: "{{system_value}}" 
+    group: sudo
+    append: yes
+    shell: /bin/bash
+    create_home: yes
+
+- name: validating if the user is added rightfully in sudo group
+  lineinfile:
+    path: /etc/sudoers
+    regexp: '^%sudo'
+    line: '%sudo ALL=(ALL:ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
+

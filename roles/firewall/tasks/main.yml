@@ -1,0 +1,18 @@
+---
+# tasks file for roles/firewalld
+
+
+- name: Install UFW
+  apt:
+    name: ufw
+    state: present
+ 
+- name: Allow SSH
+  ufw:
+    name: OpenSSH
+    rule: allow
+
+- name: Enable UFW
+  ufw:
+    state: enabled
+
